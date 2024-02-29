@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이름 - typo Intro </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            background-color: #000;
+            font-size: 16px;
+            height: 100%;
+            font-family: "Sulphur Point", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .intro-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+
+        }
+
+        .intro-container .intro-text {
+            display: flex;
+        }
+
+        .intro-container .intro-text span.letter {
+            color: #fff;
+            font-size: 20em;
+            opacity: 0;
+            /* fadeIn - 1초동안 서서히 나타남 */
+            /* fadeOut - 1초동안 서서히 사라짐 */
+            /* fadeInSite - 다른 요소가 나타날때 해당 요소가 1초동안 서서히 나타남  */
+
+        }
+
+        span.letter:nth-child(1) {
+            animation: fadeIn 1s ease forwards;
+        }
+        span.letter:nth-child(2) {
+            animation: fadeIn 2s ease forwards;
+        }
+        span.letter:nth-child(3) {
+            animation: fadeIn 3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-200px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- .intro-container>.intro-text>span.letter -->
+    <div class="intro-container">
+        <div class="intro-text">
+            <span class="letter">J</span>
+            <span class="letter">A</span>
+            <span class="letter">S</span>
+        </div>
+    </div>
+    <script>        
+        const letters = document.querySelectorAll(".letter");        
+        letters.forEach((letter, index) => setTimeout(() => letter.style.opacity = '1', 100 * index));
+        // window.location.href -> 현재의 창에서 URL 나타냄 속성 
+        setTimeout(() => window.location.href = 'https://anseonjang.github.io/portfolio', 3000);
+        // 1000 - 각 요소가 나타나기까지의 대기시간
+        // 2000 - 마지막 요소 나타난 후 추가적으로 대기해야되는 시간
+        // letter - 각요소, index - 순서
+        // transition: opacity 0.1s;
+        // 100 * index -> 투명도 조절하는데 걸리는 시간 간격
+        // 첫번째글자 - 0초 / 두번째글자 - 0.1초 / 세번째글자 - 0.2초 
+        // .setTimeout() - 일정 시간이 지난 후 특정 작업 실행
+        // .forEach() - 배열의 각 요소에 대해 주어진 함수 실행 
+    </script>
+</body>
+
+</html>
